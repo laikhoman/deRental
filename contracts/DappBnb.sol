@@ -7,7 +7,7 @@ import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
 
 contract DappBnb is Ownable, ReentrancyGuard {
   using Counters for Counters.Counter;
-  Counters.Counter private _totalAppartments;
+  Counters.Counter private _totalApartments;
 
   struct ApartmentStruct {
     uint id;
@@ -47,7 +47,7 @@ contract DappBnb is Ownable, ReentrancyGuard {
   mapping(uint => ApartmentStruct) apartments;
   mapping(uint => BookingStruct[]) bookingsOf;
   mapping(uint => ReviewStruct[]) reviewsOf;
-  mapping(uint => bool) appartmentExist;
+  mapping(uint => bool) apartmentExist;
   mapping(uint => uint[]) bookedDates;
   mapping(uint => mapping(uint => bool)) isDateBooked;
   mapping(address => mapping(uint => bool)) hasBooked;
@@ -57,7 +57,7 @@ contract DappBnb is Ownable, ReentrancyGuard {
     securityFee = _securityFee;
   }
 
-  function createAppartment(
+  function createApartment(
     string memory name,
     string memory description,
     string memory location,
@@ -72,9 +72,9 @@ contract DappBnb is Ownable, ReentrancyGuard {
     require(rooms > 0, 'Rooms cannot be zero');
     require(price > 0 ether, 'Price cannot be zero');
 
-    _totalAppartments.increment();
+    _totalApartments.increment();
     ApartmentStruct memory lodge;
-    lodge.id = _totalAppartments.current();
+    lodge.id = _totalApartments.current();
     lodge.name = name;
     lodge.description = description;
     lodge.location = location;
@@ -84,11 +84,11 @@ contract DappBnb is Ownable, ReentrancyGuard {
     lodge.owner = msg.sender;
     lodge.timestamp = currentTime();
 
-    appartmentExist[lodge.id] = true;
-    apartments[_totalAppartments.current()] = lodge;
+    apartmentExist[lodge.id] = true;
+    apartments[_totalApartments.current()] = lodge;
   }
 
-  function updateAppartment(
+  function updateApartment(
     uint id,
     string memory name,
     string memory description,
@@ -97,7 +97,7 @@ contract DappBnb is Ownable, ReentrancyGuard {
     uint rooms,
     uint price
   ) public {
-    require(appartmentExist[id] == true, 'Appartment not found');
+    require(apartmentExist[id] == true, 'Apartment not found');
     require(msg.sender == apartments[id].owner, 'Unauthorized personnel, owner only');
     require(bytes(name).length > 0, 'Name cannot be empty');
     require(bytes(description).length > 0, 'Description cannot be empty');
@@ -117,24 +117,24 @@ contract DappBnb is Ownable, ReentrancyGuard {
     apartments[id] = lodge;
   }
 
-  function deleteAppartment(uint id) public {
-    require(appartmentExist[id] == true, 'Appartment not found');
+  function deleteApartment(uint id) public {
+    require(apartmentExist[id] == true, 'Apartment not found');
     require(apartments[id].owner == msg.sender, 'Unauthorized entity');
 
-    appartmentExist[id] = false;
+    apartmentExist[id] = false;
     apartments[id].deleted = true;
   }
 
   function getApartments() public view returns (ApartmentStruct[] memory Apartments) {
     uint256 available;
-    for (uint i = 1; i <= _totalAppartments.current(); i++) {
+    for (uint i = 1; i <= _totalApartments.current(); i++) {
       if (!apartments[i].deleted) available++;
     }
 
     Apartments = new ApartmentStruct[](available);
 
     uint256 index;
-    for (uint i = 1; i <= _totalAppartments.current(); i++) {
+    for (uint i = 1; i <= _totalApartments.current(); i++) {
       if (!apartments[i].deleted) {
         Apartments[index++] = apartments[i];
       }
@@ -146,7 +146,7 @@ contract DappBnb is Ownable, ReentrancyGuard {
   }
 
   function bookApartment(uint aid, uint[] memory dates) public payable {
-    require(appartmentExist[aid], 'Apartment not found!');
+    require(apartmentExist[aid], 'Apartment not found!');
     require(
       msg.value >=
         (apartments[aid].price * dates.length) +
@@ -266,7 +266,7 @@ contract DappBnb is Ownable, ReentrancyGuard {
   }
 
   function addReview(uint aid, string memory reviewText) public {
-    require(appartmentExist[aid], 'Appartment not available');
+    require(apartmentExist[aid], 'Apartment not available');
     require(hasBooked[msg.sender][aid], 'Book first before review');
     require(bytes(reviewText).length > 0, 'Review text cannot be empty');
 
@@ -285,8 +285,8 @@ contract DappBnb is Ownable, ReentrancyGuard {
     return reviewsOf[aid];
   }
 
-  function tenantBooked(uint appartmentId) public view returns (bool) {
-    return hasBooked[msg.sender][appartmentId];
+  function tenantBooked(uint apartmentId) public view returns (bool) {
+    return hasBooked[msg.sender][apartmentId];
   }
 
   function currentTime() internal view returns (uint256) {
