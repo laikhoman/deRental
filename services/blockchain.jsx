@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
-import { store } from '@/store'
-import { globalActions } from '@/store/globalSlices'
+import { store } from '@/storage'
+import { globalActions } from '@/storage/globalSlices'
 import address from '@/contracts/contractAddress.json'
 import dappBnbAbi from '@/artifacts/contracts/DappBnb.sol/DappBnb.json'
 

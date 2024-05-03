@@ -17,7 +17,7 @@ const shuffleArray = (array) => {
 }
 
 async function createApartments(contract, apartment) {
-  const tx = await contract.createAppartment(
+  const tx = await contract.createApartment(
     apartment.name,
     apartment.description,
     apartment.location,

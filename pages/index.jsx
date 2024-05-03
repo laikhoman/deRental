@@ -11,7 +11,7 @@ export default function Home({ apartmentsData }) {
       </Head>
 
       <Category />
-      <Collection appartments={apartmentsData} />
+      <Collection apartments={apartmentsData} />
     </div>
   )
 }
