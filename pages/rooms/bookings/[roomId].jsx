@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Booking } from '@/components'
 import { useRouter } from 'next/router'
-import { globalActions } from '@/store/globalSlices'
+import { globalActions } from '@/storage/globalSlices'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBookings, getApartment } from '@/services/blockchain'
 

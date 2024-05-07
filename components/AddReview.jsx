@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { FaTimes } from 'react-icons/fa'
 import { addReview } from '@/services/blockchain'
-import { globalActions } from '@/store/globalSlices'
+import { globalActions } from '@/storage/globalSlices'
 import { useDispatch, useSelector } from 'react-redux'
 
 const AddReview = ({ roomId }) => {
