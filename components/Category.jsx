@@ -21,17 +21,17 @@ const Category = () => {
       <p className="flex flex-col items-center hover:text-black border-b-2
        border-transparent hover:border-black hover:cursor-pointer pb-2">
         <BsSnow2 className="text-3xl" />
-        Arctic
+        Luxury
       </p>
       <p className="flex flex-col items-center hover:text-black border-b-2
        border-transparent hover:border-black hover:cursor-pointer pb-2">
         <GiCampingTent className="text-3xl" />
-        Camping
+        Lake
       </p>
       <p className="flex flex-col items-center hover:text-black border-b-2
        border-transparent hover:border-black hover:cursor-pointer pb-2">
         <RiHotelLine className="text-3xl" />
-        Hotel
+        Dome
       </p>
     </div>
   )

@@ -16,18 +16,20 @@ const imagesUrls = [
 "https://a0.muscache.com/im/pictures/miso/Hosting-12571408/original/e65516c3-1d02-4287-9eb3-ed36a1fa9c9f.jpeg?im_w=1440",
 "https://a0.muscache.com/im/pictures/miso/Hosting-15306837/original/a236464a-1320-4d98-af6c-6d0702bd3184.jpeg?im_w=1440",
 "https://a0.muscache.com/im/pictures/88f1381d-559a-4eed-88a3-ff6c1b8cbdb8.jpg?im_w=1200",
+"https://a0.muscache.com/im/pictures/83d52d32-51d5-4112-99ef-1d74e15667da.jpg?im_w=1440",
+'https://a0.muscache.com/im/pictures/3757edd0-8d4d-4d51-9d2e-3000e8c3797e.jpg?im_w=720',
+'https://a0.muscache.com/im/pictures/b7811ddd-b5e6-43ee-aa41-1fa28cf5ef95.jpg?im_w=720',
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1111079652359207752/original/82a5fa9a-cd3e-4921-a0ca-f91ac8c84fb7.jpeg?im_w=1440",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1095462364246368938/original/82c9c11d-ccc2-43d0-bbb9-274cdf364947.jpeg?im_w=1440",
+"https://a0.muscache.com/im/pictures/be537f69-cf36-4d6e-85fc-2cb4c3bdfd5d.jpg?im_w=720",
+"https://a0.muscache.com/im/pictures/miso/Hosting-930892515825146438/original/149817fa-584a-40b6-9ea8-993c9ca73ac4.jpeg?im_w=1200",
+"https://a0.muscache.com/im/pictures/miso/Hosting-624391830692785484/original/70d6058c-4237-43dc-9f28-058ce45f192a.jpeg?im_w=1440",
+"https://a0.muscache.com/im/pictures/105113578/d23c79cb_original.jpg?im_w=1440",
 
   
-  'https://a0.muscache.com/im/pictures/309bee53-311d-4f07-a2e7-14daadbbfb77.jpg?im_w=720',
-  'https://a0.muscache.com/im/pictures/miso/Hosting-660654516377752568/original/be407e38-ad1e-4b2b-a547-2185068229f6.jpeg?im_w=720',
-  'https://a0.muscache.com/im/pictures/miso/Hosting-10989371/original/46c0c87f-d9bc-443c-9b64-24d9e594b54c.jpeg?im_w=1200',
-  'https://a0.muscache.com/im/pictures/miso/Hosting-653943444831285144/original/73346136-e0bb-46a8-8ce4-a9fb5229e6b3.jpeg?im_w=720',
-  'https://a0.muscache.com/im/pictures/71993873/b158891b_original.jpg?im_w=720',
-  'https://a0.muscache.com/im/pictures/prohost-api/Hosting-686901689015576288/original/2cd072fa-8c03-4ef3-a061-268b9b957e28.jpeg?im_w=720',
   'https://a0.muscache.com/im/pictures/b88162e9-9ce3-4254-8129-2ea8719ab2c3.jpg?im_w=720',
   'https://a0.muscache.com/im/pictures/prohost-api/Hosting-585362898291824332/original/8a92bd09-9795-4586-bc32-6ab474d0922b.jpeg?im_w=720',
-  'https://a0.muscache.com/im/pictures/3757edd0-8d4d-4d51-9d2e-3000e8c3797e.jpg?im_w=720',
-  'https://a0.muscache.com/im/pictures/b7811ddd-b5e6-43ee-aa41-1fa28cf5ef95.jpg?im_w=720',
+  
 ]
 
 const shuffleArray = (array) => {
@@ -119,13 +121,13 @@ async function main() {
     await delay(3000) // Wait for 2.5 seconds
 
     // Process #2
-    await Promise.all(
-      Array(dataCount)
-        .fill()
-        .map(async (_, i) => {
-          await bookApartments(dappBnbContract, i + 1, dates1)
-        })
-    )
+    // await Promise.all(
+    //   Array(dataCount)
+    //     .fill()
+    //     .map(async (_, i) => {
+    //       await bookApartments(dappBnbContract, i + 1, dates1)
+    //     })
+    // )
 
     console.log('Items dummy data seeded...')
   } catch (error) {
