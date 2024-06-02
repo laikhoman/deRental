@@ -5,7 +5,9 @@ import '@rainbow-me/rainbowkit/styles.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useEffect, useState } from 'react'
 import Providers from '@/services/provider'
+import { Provider } from 'react-redux'
 import { Footer, Header } from '@/components'
+import { store } from '@/storage'
 
 export default function App({ Component, pageProps }) {
   const [showChild, setShowChild] = useState(false)
@@ -19,25 +21,28 @@ export default function App({ Component, pageProps }) {
   } else {
     return (
       <Providers pageProps={pageProps}>
-        <div className="relative h-screen min-w-screen">
-          <Header />
-          <Component {...pageProps} />
-          <div className="h-20"></div>
-          <Footer />
-        </div>
+        <Provider store={store}>
+          <div className="relative h-screen min-w-screen">
+            <Header />
+            <Component {...pageProps} />
+            <div className="h-20"></div>
+            <Footer />
+          </div>
 
-        <ToastContainer
-          position="bottom-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
+          <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+
+        </Provider>
       </Providers>
     )
   }
