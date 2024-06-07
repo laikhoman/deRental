@@ -13,6 +13,14 @@ module.exports = {
     //   timeout: 120000,
     //   gasPrice: 10 * 10**9,
     // },
+    MUMBAI_RPC: {
+      url: 'https://rpc-mumbai.maticvigil.com/v1/92ade6c99ebf54cfb388e446539ff00d317786be',
+      accounts: [''],
+      chainId: 80001,
+      timeout: 120000,
+      gasPrice: 10 * 10**9,
+    },
+    
   },
   solidity: {
     version: '0.8.19',
