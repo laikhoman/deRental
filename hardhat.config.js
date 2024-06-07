@@ -6,20 +6,20 @@ module.exports = {
     localhost: {
       url: 'http://127.0.0.1:8545',
     },
-    // bitfinity: {
-    //   url: 'https://testnet.bitfinity.network',
-    //   accounts: [''],
-    //   chainId: 355113,
-    //   timeout: 120000,
-    //   gasPrice: 10 * 10**9,
-    // },
-    MUMBAI_RPC: {
-      url: 'https://rpc-mumbai.maticvigil.com/v1/92ade6c99ebf54cfb388e446539ff00d317786be',
+    bitfinity: {
+      url: 'https://testnet.bitfinity.network',
       accounts: [''],
-      chainId: 80001,
+      chainId: 355113,
       timeout: 120000,
       gasPrice: 10 * 10**9,
     },
+    // MUMBAI_RPC: {
+    //   url: 'https://rpc-mumbai.maticvigil.com/v1/92ade6c99ebf54cfb388e446539ff00d317786be',
+    //   accounts: [process.env.DEPLOYER],
+    //   chainId: 80001,
+    //   timeout: 120000,
+    //   gasPrice: 10 * 10**9,
+    // },
     
   },
   solidity: {
