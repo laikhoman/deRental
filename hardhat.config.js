@@ -8,7 +8,7 @@ module.exports = {
     },
     bitfinity: {
       url: 'https://testnet.bitfinity.network',
-      accounts: [''],
+      accounts: ['647cb887568119af7d43e8642bca02b7dd2bd6d0b61b522ee1d9165a60cb8f70'], // [process.env.DEPLOYER],
       chainId: 355113,
       timeout: 120000,
       gasPrice: 10 * 10**9,
