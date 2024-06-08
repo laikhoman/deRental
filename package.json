@@ -10,7 +10,7 @@
     "format": "prettier --ignore-path .gitignore \"pages/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
     "blockchain": "yarn hardhat node",
-    "deploy": "yarn hardhat run scripts/deploy.js",
+    "deploy": "yarn hardhat run scripts/deploy.js --network matic_rpc",
     "seed": "yarn hardhat run scripts/seed.js"
   },
   "lint-staged": {
