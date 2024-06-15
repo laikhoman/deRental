@@ -4,8 +4,8 @@ const fs = require('fs')
 
 const toWei = (num) => ethers.parseEther(num.toString())
 
-const dataCount = 5
-const maxPrice = 3.5
+const dataCount = 2
+const maxPrice = 0.35
 const imagesUrls = [
 "https://a0.muscache.com/im/pictures/38fe23e4-fb55-4d0a-a71b-f31d3fc61c6c.jpg?im_w=1200",
 "https://a0.muscache.com/im/pictures/be8d84b7-f427-40ab-b7dd-1d87fdeda56f.jpg?im_w=720",
@@ -49,9 +49,9 @@ const generateFakeApartment = (count) => {
     const description = faker.lorem.paragraph()
     const location = faker.lorem.word()
     const price = faker.number.float({
-      min: 0.1,
+      min: 0.01,
       max: maxPrice,
-      precision: 0.01,
+      multipleOf: 0.001,
     })
     const rooms = faker.number.int({ min: 2, max: 5 })
     const owner = faker.string.hexadecimal({

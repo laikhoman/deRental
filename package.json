@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn hardhat node && yarn hardhat run scripts/deploy.js --network matic_rpc && yarn hardhat run scripts/seed.js && next dev ",
+    "dev": "next dev ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --ignore-path .gitignore \"pages/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
     "blockchain": "yarn hardhat node",
-    "deploy": "yarn hardhat run scripts/deploy.js --network matic_rpc",
+    "deploy": "yarn hardhat run scripts/deploy.js --network sepolia_rpc",
     "seed": "yarn hardhat run scripts/seed.js"
   },
   "lint-staged": {
