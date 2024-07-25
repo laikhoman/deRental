@@ -27,7 +27,7 @@ module.exports = {
       accounts: ['e6bbb4065bbfd181d4d037e25049fc8b5c5c6f091c869a4340b49425f0168e8e'],
       chainId: 11155111,
       timeout: 120000,
-      gasPrice: 5 * 10**10,
+      gasPrice: 10 * 10**10,
     },
     
   },
